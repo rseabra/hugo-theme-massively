@@ -1,6 +1,9 @@
 <!-- Nav -->
 {{ $lang := site.Language.Lang }}
 {{ $data := index hugo.Data $lang }}
+{{ if not $data }}
+{{ $data = index hugo.Data .Site.DefaultContentLanguage }}
+{{ end }}
 {{ $currentPage := .Page }}
 <nav id="nav">
     <ul class="links">
